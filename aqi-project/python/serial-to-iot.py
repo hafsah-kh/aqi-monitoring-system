@@ -28,16 +28,16 @@ def read_arduino_data(ser):
         return None
 
 def send_to_iot_hub(client, sensor_value):
-    """Send sensor data to Azure IoT Hub"""
+    """Send sensor data to Azure IoT Central"""
     try:
         message = {"air_quality": sensor_value}
         client.send_message(str(message))
         print(f"Message sent to IoT Hub: {message}")
     except Exception as e:
-        print(f"Error sending message to IoT Hub: {e}")
+        print(f"Error sending message to IoT Central: {e}")
 
 def main():
-    # Initialize IoT Hub client
+    # Initialize IoT Central client
     client = iothub_client_init()
     
     # Initialize serial connection
